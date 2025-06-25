@@ -4,9 +4,11 @@ import {
   View,
   StyleSheet,
   FlatList,
+  ImageBackground,
   TouchableOpacity
 } from 'react-native'
 import { FontAwesome } from '@expo/vector-icons'
+import BackImage from '../../assets/JS.jpg'
 import Swipeable from 'react-native-gesture-handler/Swipeable'
 import moment from 'moment'
 import 'moment/locale/pt-br'
@@ -16,7 +18,7 @@ const taskDB = [
   {
     id: 1,
     title: 'Estudar React Native',
-    desc: 'Aprender FlatList, estilos e hooks, mais um monte de coisa que eu nem sei o que tem haver com isso taligado ',
+    desc: 'Aprender FlatList, estilos e hooks',
     estimateAt: new Date('2025-06-01')
   },
   {
@@ -60,6 +62,7 @@ export default function NotesScreen() {
 
   return (
     <View style={styles.container}>
+      <ImageBackground source={BackImage} style={styles.background}/>
       <Text style={styles.header}>Minhas Notas</Text>
       <FlatList
         data={notes}
@@ -119,5 +122,8 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontSize: 12,
     marginTop: 4
-  }
+  },
+  background: {
+    flex: 1
+}
 })
